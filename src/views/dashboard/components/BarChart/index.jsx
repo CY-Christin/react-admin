@@ -2,7 +2,7 @@ import React,{ Component } from "react";
 import {PropTypes} from "prop-types";
 import { debounce } from "@/utils";
 import echarts from '@/lib/echarts'
-import connect from 'react-redux'
+import { connect } from 'react-redux'
 
 class BarChart extends Component {
 	static propTypes = {

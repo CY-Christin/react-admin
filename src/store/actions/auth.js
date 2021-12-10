@@ -6,7 +6,8 @@ export const login = (username, password) => (dispatch) => {
 	return new Promise((resolve,reject) =>{
 		reqLogin({username,password})
 			.then(response =>{
-				const data = response.data
+				const data = response
+				console.log('res',response)
 				if(data.status === 0){
 					const token = data.token
 					dispatch(setUserToken(token))

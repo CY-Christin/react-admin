@@ -1,11 +1,14 @@
-import React,{ useState } from "react";
-import { Row, Col } from 'antd'
+import React, { useState } from "react";
+import { Row, Col } from "antd";
+import "./index.less";
 import PanelGroup from "./components/PanelGroup";
 import LineChart from "./components/LineChart";
+import BarChart from "./components/BarChart";
 import RaddarChart from "./components/RaddarChart";
 import PieChart from "./components/PieChart";
-import BarChart from "./components/BarChart"
-import TransactionTable from './components/TransactionTable'
+import TransactionTable from "./components/TransactionTable";
+import BoxCard from "./components/BoxCard";
+
 const lineChartDefaultData = {
 	"New Visits": {
 		expectedData: [100, 120, 161, 134, 105, 160, 165],
@@ -26,34 +29,46 @@ const lineChartDefaultData = {
 };
 
 const Dashboard = () => {
-	const [lineChartData,setLineChart] = useState(
-		lineChartDefaultData['New Visits']
-	)
-	const handleSetLineChartData = (type) => setLineChart(lineChartDefaultData[type])
-	return(
+	const [lineChartData, setLineChartData] = useState(
+		lineChartDefaultData["New Visits"]
+	);
+
+	const handleSetLineChartData = (type) => setLineChartData(lineChartDefaultData[type]);
+
+	return (
 		<div className="app-container">
-			<a href="www.baidu.com" target='_blank'></a>
+			<a
+				href="https://github.com/NLRX-WJC/react-antd-admin-template"
+				target="_blank"
+				rel="noopener noreferrer"
+				className="github-corner"
+			></a>
+
 			<PanelGroup handleSetLineChartData={handleSetLineChartData} />
+
 			<LineChart
 				chartData={lineChartData}
-				width={500}
-				height={300}
-				margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-			></LineChart>
+				styles={{
+					padding: 12,
+					backgroundColor: "#fff",
+					marginBottom: "25px",
+				}}
+			/>
+
 			<Row gutter={32}>
 				<Col xs={24} sm={24} lg={8}>
 					<div className="chart-wrapper">
-						<RaddarChart/>
+						<RaddarChart />
 					</div>
 				</Col>
 				<Col xs={24} sm={24} lg={8}>
 					<div className="chart-wrapper">
-						<PieChart/>
+						<PieChart />
 					</div>
 				</Col>
 				<Col xs={24} sm={24} lg={8}>
 					<div className="chart-wrapper">
-						<BarChart/>
+						<BarChart />
 					</div>
 				</Col>
 			</Row>
@@ -63,9 +78,9 @@ const Dashboard = () => {
 					xs={24}
 					sm={24}
 					md={24}
-					lg={24}
+					lg={12}
 					xl={12}
-					style={{ paddingRight: '8px', marginBottom: '30px' }}
+					style={{ paddingRight: "8px", marginBottom: "30px" }}
 				>
 					<TransactionTable />
 				</Col>
@@ -75,11 +90,13 @@ const Dashboard = () => {
 					md={24}
 					lg={12}
 					xl={12}
-					style={{ marginBottom: '30px'}}
-				></Col>
+					style={{ marginBottom: "30px" }}
+				>
+					<BoxCard />
+				</Col>
 			</Row>
 		</div>
-	)
-}
+	);
+};
 
-export default Dashboard
+export default Dashboard;

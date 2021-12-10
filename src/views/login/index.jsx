@@ -4,6 +4,7 @@ import DocumentTitle from "react-document-title";
 import {connect} from "react-redux";
 import { login,getUserInfo } from "../../store/actions";
 import "./index.less"
+import {Redirect} from "react-router-dom";
 
 const Login = (props) =>{
 	const { form, token, login, getUserInfo } = props
@@ -17,6 +18,8 @@ const Login = (props) =>{
 				message.success('登录成功')
 				handleUserInfo(data.token)
 			}).catch((err)=>{
+				console.log(err)
+				message.error('登录失败')
                 setLoading(false)
             })
 	}
@@ -24,6 +27,7 @@ const Login = (props) =>{
 		event.preventDefault()
 		form.validateFields((err,values)=>{
 			if(!err) {
+				console.log(1)
 				const { username, password} = values
 				handleLogin(username,password)
 			}else{
@@ -39,10 +43,13 @@ const Login = (props) =>{
 				message.error(error)
 			})
 	}
+	if(token){
+		return <Redirect to="/dashboard" />
+	}
 	return(
 		<DocumentTitle title={"用户登录"}>
 			<div className={"login-container"}>
-				<Form onSubmit={handleSubmit} className={"content"}>
+				<Form onSubmit={handleSubmit} className="content">
 					<div className="title">
 						<h2>用户登录</h2>
 					</div>

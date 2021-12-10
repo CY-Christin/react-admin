@@ -10,28 +10,33 @@ const service = axios.create({
 service.interceptors.request.use(
     config => {
         if (store.getState().user.token) {
-            config.headers['Authorization'] = getToken()
+            config.headers.Authorization = getToken()
         }
         return config
     },
     error => {
 		console.log(error)
-        return Promise.reject(error)
+        Promise.reject(error)
     }
 )
 service.interceptors.response.use(
-    response => {
-        const res = response.data
-        if (res.status !== 0) {
-            Modal.error({
-                title: '错误',
-                content: res.msg
-            })
-            return Promise.reject(res.msg)
-        } else {
-            return res
-        }
+    (response) => {
+        console.log('response',response)
+        return response
     },
+    // response => {
+    //     console.log('response',response)
+    //     const res = response.data
+    //     if (res.status !== 0) {
+    //         Modal.error({
+    //             title: '错误',
+    //             content: res.msg
+    //         })
+    //         return Promise.reject(res.msg)
+    //     } else {
+    //         return res
+    //     }
+    // },
     error => {
         console.log('err' + error) // for debug
         Modal.error({

@@ -23,7 +23,7 @@ export const getUserInfo = (token) => (dispatch) =>{
 
 export const setUserToken = (token) =>{
 	return{
-		types:types.USER_SET_USER_TOKEN,
+		type:types.USER_SET_USER_TOKEN,
 		token,
 	}
 }
