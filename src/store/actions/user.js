@@ -34,3 +34,9 @@ export const setUserInfo = (userInfo) =>{
         ...userInfo
     }
 }
+
+export const resetUser = () => {
+	return {
+		type: types.USER_RESET_USER,
+	};
+};

@@ -1,4 +1,4 @@
-import React, { userState, useEffect} from "react";
+import React, { useState, useEffect} from "react";
 import screenfull from 'screenfull'
 import { Icon, message, Tooltip} from "antd";
 import './index.less'
@@ -12,7 +12,7 @@ const click = () => {
 }
 
 const FullScreen = () => {
-	const [isFullscreen, setIsFullscreen] = userState(false)
+	const [isFullscreen, setIsFullscreen] = useState(false);
 	const change = () => {
 		setIsFullscreen(screenfull.isFullscreen)
 	}

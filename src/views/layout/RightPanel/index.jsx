@@ -69,7 +69,7 @@ const RightPanel = (props) => {
 					</Col>
 					<Col span={12}>
 						<Switch
-							checked='开'
+							checkedChildren='开'
 							unCheckedChildren='关'
 							defaultChecked={sidebarLogo}
 							onChange={sidebarLogoChange}

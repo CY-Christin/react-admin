@@ -41,7 +41,7 @@ class LineChart extends Component {
 	resize(){
 		const chart = this.state.chart
 		if(chart) {
-			debounce(chart.resize.bind(this), 300)
+			debounce(chart.resize.bind(this), 300)()
 		}
 	}
 
@@ -146,9 +146,9 @@ class LineChart extends Component {
 					height,
 					width
 				}}
-			></div>
+			/>
 		)
 	}
 }
 
-export default connect(state=> this.state.app)(LineChart)
+export default connect(state=>state.app)(LineChart);

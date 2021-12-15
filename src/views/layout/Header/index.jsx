@@ -2,10 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { Icon, Menu, Dropdown, Modal, Layout, Avatar} from "antd";
 import { Link } from "react-router-dom";
-import { getUserInfo } from "@/store/actions";
+import { logout,getUserInfo } from "@/store/actions";
 import FullScreen from "@/components/FullScreen";
 import Settings from "@/components/Settings";
 import Hamburger from "@/components/Hamburger";
+import BreadCrumb from "@/components/BreadCrumb";
 import './index.less'
 
 const { Header } = Layout
@@ -20,6 +21,44 @@ const LayoutHeader = (props) => {
 		fixedHeader
 	} = props
 	token && getUserInfo(token)
+	const handleLogout = (token) => {
+		Modal.confirm({
+			title:'注销',
+			content: "确定要退出系统吗？",
+			okText:'确定',
+			cancelText:'取消',
+			onOk:() => {
+				logout(token)
+			}
+		})
+	}
+	const onClick = ({ key }) => {
+		switch (key) {
+			case "logout" :
+				handleLogout(token)
+				break;
+			default:
+				break;
+		}
+	}
+	const menu = (
+		<Menu onClick={onClick}>
+			<Menu.Item key="dashboard">
+				<Link to="/dashboard">首页</Link>
+			</Menu.Item>
+			<Menu.Item key="project">
+				<a
+					target="_blank"
+					href="www.baidu.com"
+					rel="noopener noreferrer"
+				>
+					项目地址
+				</a>
+			</Menu.Item>
+			<Menu.Divider />
+			<Menu.Item key="logout">注销</Menu.Item>
+		</Menu>
+	)
 	const computedStyle = () => {
 		let styles;
 		if(fixedHeader) {
@@ -46,13 +85,14 @@ const LayoutHeader = (props) => {
 			<Header
 				style={computedStyle()}
 				className={fixedHeader? 'fix-header':''}
-			></Header>
-
+			>
+			<Hamburger/>
+			<BreadCrumb/>
 			<div className="right-menu">
 				<FullScreen/>
 				{showSettings? <Settings/> :null}
 				<div className="dropdown-wrap">
-					<Dropdown overlay='menu'>
+					<Dropdown overlay={menu}>
 						<div>
 							<Avatar shape="square" size="medium" src={avatar}></Avatar>
 							<Icon style={{ color: 'rgba(0,0,0,0.3)'}} type="caret-down" ></Icon>
@@ -60,6 +100,7 @@ const LayoutHeader = (props) => {
 					</Dropdown>
 				</div>
 			</div>
+			</Header>
 		</>
 	)
 }
@@ -70,4 +111,4 @@ const mapStateToProps = (state) => {
 		...state.settings
 	}
 }
-export default connect(mapStateToProps,{ getUserInfo })(LayoutHeader)
+export default connect(mapStateToProps,{ logout,getUserInfo })(LayoutHeader)

@@ -2,7 +2,7 @@ import request from "@/utils/request";
 
 export function reqUserInfo(data){
 	return request({
-		use: '/userInfo',
+		url: '/userInfo',
 		method: 'post',
 		data
 	})
@@ -10,7 +10,7 @@ export function reqUserInfo(data){
 
 export function getUsers(){
 	return request({
-        use: '/user/list',
+		url: '/user/list',
         method: 'get'
     })
 }

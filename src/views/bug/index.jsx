@@ -11,7 +11,7 @@ const obj = {}
 
 class Bug extends Component{
 	jsError = () => {
-		console.log(obj.a.length)
+		console.log(obj.a)
 	}
 	loadResourceError = () => {
 		let img = document.createElement("img")
@@ -21,7 +21,7 @@ class Bug extends Component{
 	}
 	render(){
 		const cardContent = "此页面是用来展示通过项目内埋点收集到的异常信息。你可以点击不同种类的异常按钮，来观察捕获到的异常信息。"
-		const { bugList } = this.prosp
+		const { bugList } = this.props
 		return(
 			<div
 				className="app-container"

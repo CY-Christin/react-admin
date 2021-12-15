@@ -108,7 +108,7 @@ class TagList extends Component {
 					autoHide
 					autoHideTimeout={1000}
 					autoHideDuration={200}
-					hideTracksWhenNoteNeeded={true}
+					hideTracksWhenNotNeeded={true}
 					renderView={(props) => (
 						<div {...props} className='scrollbar-track-vertical'></div>
 					)}

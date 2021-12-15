@@ -9,13 +9,13 @@ class PieChart extends Component {
 		width: PropTypes.string,
 		height: PropTypes.string,
 		className: PropTypes.string,
-		style: PropTypes.object,
+		styles: PropTypes.object,
 	}
 	static defaultProps = {
 		width: "100%",
-		height: "100%",
+		height: "300px",
 		className: "",
-		style: {},
+		styles: {},
 	}
 
 	state = {

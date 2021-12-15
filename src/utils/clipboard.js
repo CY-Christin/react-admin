@@ -14,11 +14,11 @@ export default function handleClipboard(text, event){
   });
   clipboard.on('success', () => {
 	clipboardSuccess();
-	clipboard.destory()
+	clipboard.destroy()
   });
   clipboard.on('error', () => {
 	clipboardSuccess();
-	  clipboard.destory()
+	  clipboard.destroy()
   });
   clipboard.onClick(event);
 }
