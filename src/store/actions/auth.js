@@ -6,8 +6,8 @@ export const login = (username, password) => (dispatch) => {
 	return new Promise((resolve,reject) =>{
 		reqLogin({username,password})
 			.then(response =>{
-				const data = response
-				console.log('res',response)
+				const {data} = response
+				console.log('res',data)
 				if(data.status === 0){
 					const token = data.token
 					dispatch(setUserToken(token))
@@ -23,7 +23,9 @@ export const login = (username, password) => (dispatch) => {
 	})
 }
 export const logout = (token) => (dispatch) => {
+	console.log('111')
 	return new Promise((resolve, reject) => {
+		console.log('222')
 		reqLogout(token)
 			.then((response) => {
 				const { data } = response;

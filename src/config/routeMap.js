@@ -15,6 +15,7 @@ const Draggable = Loadable({loader: () => import(/*webpackChunkName:'Draggable'*
 const Clipboard = Loadable({loader: () => import('@/views/clipboard'), loading:Loading})
 const Menu1_1 = Loadable({loader: () => import(/*webpackChunkName:'Menu1_1'*/'@/views/nested/menu1/menu1-1'),loading: Loading});
 const Menu1_2_1 = Loadable({loader: () => import(/*webpackChunkName:'Menu1_2_1'*/'@/views/nested/menu1/menu1-2/menu1-2-1'),loading: Loading});
+const Table = Loadable({loader: () => import('@/views/table'),loading:Loading});
 export default [
 	{path: '/dashboard', component: Dashboard, roles:["admin","editor","guest"]},
 	{ path: "/bug", component: Bug, roles: ["admin"] },
@@ -28,4 +29,5 @@ export default [
 	{ path: '/clipboard', component: Clipboard, roles:["admin","editor","guest"]},
 	{ path: "/nested/menu1/menu1-1", component: Menu1_1, roles: ["admin","editor"] },
 	{ path: "/nested/menu1/menu1-2/menu1-2-1", component: Menu1_2_1, roles: ["admin","editor"] },
+	{ path: "/Table", component: Table, roles: ["admin","editor","guest"] },
 ]

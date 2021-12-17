@@ -5,14 +5,13 @@ import { toggleSiderBar } from "@/store/actions";
 import './index.less'
 
 const Hamburger = (props) => {
-	const { sidebarCollapsed, toggleSidebar } = props
+	const { sidebarCollapsed, toggleSiderBar } = props
 	return(
 		<div className="hamburger-container">
 			<Icon
 				type={sidebarCollapsed ? "menu-unfold" : "menu-fold"}
-				onClick={toggleSidebar}
-			>
-			</Icon>
+				onClick={toggleSiderBar}
+			/>
 		</div>
 	)
 }

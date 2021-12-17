@@ -27,8 +27,7 @@ const Login = (props) =>{
 		event.preventDefault()
 		form.validateFields((err,values)=>{
 			if(!err) {
-				console.log(1)
-				const { username, password} = values
+				const { username, password } = values
 				handleLogin(username,password)
 			}else{
 				message.error('检验失败')
@@ -70,7 +69,7 @@ const Login = (props) =>{
 										<Icon type="user" style={{color: "rgba(0,0,0,.25)"}}></Icon>
 									}
 									placeholder='用户名'
-								></Input>
+								/>
 							)}
 						</Form.Item>
 						<Form.Item>
@@ -90,7 +89,7 @@ const Login = (props) =>{
 									}
 									type='password'
 									placeholder='密码'
-								></Input>
+								/>
 							)}
 						</Form.Item>
 						<Form.Item>

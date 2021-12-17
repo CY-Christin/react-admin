@@ -49,7 +49,7 @@ const LayoutHeader = (props) => {
 			<Menu.Item key="project">
 				<a
 					target="_blank"
-					href="www.baidu.com"
+					href="/"
 					rel="noopener noreferrer"
 				>
 					项目地址
@@ -94,8 +94,8 @@ const LayoutHeader = (props) => {
 				<div className="dropdown-wrap">
 					<Dropdown overlay={menu}>
 						<div>
-							<Avatar shape="square" size="medium" src={avatar}></Avatar>
-							<Icon style={{ color: 'rgba(0,0,0,0.3)'}} type="caret-down" ></Icon>
+							<Avatar shape="square" size="medium" src={avatar} />
+							<Icon style={{ color: 'rgba(0,0,0,0.3)'}} type="caret-down" />
 						</div>
 					</Dropdown>
 				</div>

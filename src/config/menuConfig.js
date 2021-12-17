@@ -64,6 +64,12 @@ const menuList = [
 		icon: "copy",
 		roles:["admin","editor"]
 	},
+	{
+		title: "表格",
+		path: '/table',
+		icon: 'table',
+		roles: ["admin","editor",'guest']
+	}
 	// {
 	// 	title: "Bug收集",
 	// 	path: "/bug",

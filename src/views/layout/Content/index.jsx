@@ -10,7 +10,7 @@ import routeList from '@/config/routeMap.js'
 const { Content } = Layout
 
 const getPageTitle = (menuList, pathName) => {
-	let title = "Ant Design Pro"
+	let title = "React Admin"
 	let item = getMenuItemInMenuListByProperty(menuList, "path", pathName)
 	if(item){
 		title = `${item.title} - Ant Design Pro`
@@ -35,6 +35,7 @@ const LayoutContent = (props) => {
 						exit={false}
 					>
 						<Switch location={location}>
+							<Redirect exact from='/' to='/dashboard' />
 							{routeList.map(route=>{
 								return(
 									handleFilter(route)&&(
@@ -46,7 +47,7 @@ const LayoutContent = (props) => {
 									)
 								)
 							})}
-							<Redirect to='/'></Redirect>
+							<Redirect to='/' />
 						</Switch>
 					</CSSTransition>
 				</TransitionGroup>
