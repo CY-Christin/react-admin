@@ -37,12 +37,12 @@ const Dashboard = () => {
 
 	return (
 		<div className="app-container">
-			<a
-				href="https://github.com/NLRX-WJC/react-antd-admin-template"
-				target="_blank"
-				rel="noopener noreferrer"
-				className="github-corner"
-			></a>
+			{/*<a*/}
+			{/*	href="https://github.com/ch634421335/react-admin"*/}
+			{/*	target="_blank"*/}
+			{/*	rel="noopener noreferrer"*/}
+			{/*	className="github-corner"*/}
+			{/*/>*/}
 
 			<PanelGroup handleSetLineChartData={handleSetLineChartData} />
 

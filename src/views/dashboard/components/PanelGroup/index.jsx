@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col, Icon } from 'antd'
 import CountUp from 'react-countup'
-
+import './index.less'
 const chartList = [
 	{
 		type: 'New Visits',

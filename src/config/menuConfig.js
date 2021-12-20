@@ -69,6 +69,24 @@ const menuList = [
 		path: '/table',
 		icon: 'table',
 		roles: ["admin","editor",'guest']
+	},
+	{
+		title: '表格',
+		path: "/excel",
+		icon: "file-excel",
+		roles: ["admin","editor",'guest'],
+		children: [
+			{
+				title: "Excel导入",
+				path: "/excel/import",
+				roles:["admin","editor",'guest'],
+			},
+			{
+				title: "Excel导出",
+				path: "/excel/export",
+				roles:["admin","editor",'guest'],
+			},
+		],
 	}
 	// {
 	// 	title: "Bug收集",

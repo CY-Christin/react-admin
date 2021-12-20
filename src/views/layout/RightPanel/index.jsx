@@ -73,7 +73,7 @@ const RightPanel = (props) => {
 							unCheckedChildren='关'
 							defaultChecked={sidebarLogo}
 							onChange={sidebarLogoChange}
-						></Switch>
+						/>
 					</Col>
 				</Row>
 				<Divider dashed />
@@ -87,7 +87,7 @@ const RightPanel = (props) => {
 							unCheckedChildren="关"
 							defaultChecked={fixedHeader}
 							onChange={fixedHeaderChange}
-						></Switch>
+						/>
 					</Col>
 				</Row>
 				<Divider dashed />

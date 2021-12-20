@@ -15,6 +15,7 @@ const LayoutHeader = (props) => {
 	const {
 		token,
 		avatar,
+		logout,
 		sidebarCollapsed,
 		getUserInfo,
 		showSettings,
@@ -108,7 +109,7 @@ const mapStateToProps = (state) => {
 	return{
 		...state.app,
 		...state.user,
-		...state.settings
+		...state.settings,
 	}
 }
 export default connect(mapStateToProps,{ logout,getUserInfo })(LayoutHeader)
