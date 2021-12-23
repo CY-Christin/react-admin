@@ -1,38 +1,33 @@
-import React, { Component } from "react";
-import { Table } from "antd";
+import React, {Component, useState} from "react";
+import { Table } from 'antd'
 import UploadExcelComponent from "@/components/UploadExcel";
-class UploadExcel extends Component {
-	state = {
-		tableData: [],
-		tableHeader: []
+
+
+const UploadExcel = (props) => {
+	const [tableData,setTableData] = useState([])
+	const [tableHeader,setTableHeader] = useState([])
+	const handleSuccess = ({ results, header}) => {
+		setTableData(results)
+		setTableHeader(header)
 	}
-	handleSuccess = ({ results, header}) => {
-		console.log('state',this.state)
-		this.setState({
-			tableData: results,
-			tableHeader: header
-		})
-	}
-	render(){
-		return(
-			<div className='app-container'>
-				<UploadExcelComponent uploadSuccess={this.handleSuccess} />
-				<br/>
-				<Table
-					bordered
-					columns={this.state.tableHeader.map((item) => (
-						{
-							title: item,
-							dataIndex: item,
-							key: item,
-							width: 195,
-							align: 'center'
-						}
-					))}
-					dataSource={this.state.tableData}
-				/>
-			</div>
-		)
-	}
+	return(
+		<div className='app-container'>
+			<UploadExcelComponent uploadSuccess={handleSuccess} />
+			<br/>
+			<Table
+				bordered
+				columns={tableHeader.map(item => (
+					{
+						title:item,
+						dataIndex:item,
+						key:item,
+						width:195,
+						align:'center'
+					}
+				))}
+				dataSource={tableData}
+			/>
+		</div>
+	)
 }
 export default UploadExcel

@@ -4,11 +4,11 @@ import './index.less'
 const Mallki = (props) => {
 	const { className, text } = props
 	return(
-		<a className={`mallki ${className}`} href='#/'
+		<a className={`mallki ${className}`} href='/'
 		>
 			{text}
-			<span data-letters={text}></span>
-			<span data-letters={text}></span>
+			<span data-letters={text} />
+			<span data-letters={text} />
 		</a>
 	)
 }
