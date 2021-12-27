@@ -13,6 +13,7 @@ import {
 } from 'antd'
 import { tableList, deleteItem, editItem } from "@/api/table";
 import EditForm from './forms/editForm'
+import FormModal from './forms/formModal'
 const { Column } = Table
 const { Panel } = Collapse
 class TableComponent extends Component {
@@ -38,7 +39,8 @@ class TableComponent extends Component {
 			star: "★",
 			status: "published",
 			title: ''
-		}
+		},
+		showModal: false
 	}
 	fetchData = () => {
 		this.setState({loading: true})
@@ -148,6 +150,9 @@ class TableComponent extends Component {
 	handelCancel = _ =>{
 		this.setState({editModalVisible:false})
 	}
+	showModal = (state) => {
+		this.setState({showModal:state})
+	}
 	render() {
 		return (
 			<div className='app-container'>
@@ -155,7 +160,7 @@ class TableComponent extends Component {
 					<Panel header="筛选" key='1'>
 						<Form layout='inline'>
 							<Form.Item label='标题：'>
-								<Input onChange={this.filterTitleChange}></Input>
+								<Input onChange={this.filterTitleChange} />
 							</Form.Item>
 							<Form.Item label='类型：'>
 								<Select
@@ -190,8 +195,12 @@ class TableComponent extends Component {
 					loading={this.state.loading}
 					pagination={false}
 				>
-					<Column title='序号' dataIndex='id' key='id' width={200} align='center' sorter={(a, b) => a.id - b.id} />
-					<Column title='标题' dataIndex='title' key='title' width={200} align='center'/>
+					<Column title='序号' dataIndex='id' key='id' width={200} align='center' sorter={(a, b) => a.id - b.id} render={(text,row)=>{
+						return text + 1
+					}} />
+					<Column title='标题' dataIndex='title' key='title' width={200} align='center' render={(title,row) => {
+						return(<span style={{color:'blue',cursor:'pointer'}} onClick={(row)=>{this.showModal(true)}}>{title}</span>)
+					}}/>
 					<Column title='作者' dataIndex='author' key='author' width={100} align="center" />
 					<Column title='阅读量' dataIndex='readings' key='readings' width={195} align="center" />
 					<Column title='推荐指数' dataIndex='star' key="star" width={195} align="center" />
@@ -231,6 +240,7 @@ class TableComponent extends Component {
 					onCancel={this.handelCancel}
 					onOk={this.handleOk}
 				/>
+				<FormModal show={this.state.showModal} showModal={this.showModal} />
 			</div>
 		);
 	}
