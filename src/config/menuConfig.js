@@ -65,6 +65,12 @@ const menuList = [
 		roles:["admin","editor"]
 	},
 	{
+		title: "引导页",
+		path: "/guide",
+		icon: "right-circle",
+		roles:["admin","editor"]
+	},
+	{
 		title: "表格",
 		path: '/table',
 		icon: 'table',

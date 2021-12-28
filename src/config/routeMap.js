@@ -18,6 +18,7 @@ const Menu1_2_1 = Loadable({loader: () => import(/*webpackChunkName:'Menu1_2_1'*
 const Table = Loadable({loader: () => import('@/views/table'),loading:Loading});
 const ExportExcel = Loadable({loader: () => import('@/views/excel/exportExcel'),loading:Loading});
 const UploadExcel = Loadable( {loader: () => import('@/views/excel/uploadExcel'),loading:Loading});
+const Guide = Loadable( {loader: () => import('@/views/guide'),loading:Loading});
 export default [
 	{path: '/dashboard', component: Dashboard, roles:["admin","editor","guest"]},
 	{ path: "/bug", component: Bug, roles: ["admin"] },
@@ -33,5 +34,6 @@ export default [
 	{ path: "/nested/menu1/menu1-2/menu1-2-1", component: Menu1_2_1, roles: ["admin","editor"] },
 	{ path: "/Table", component: Table, roles: ["admin","editor","guest"] },
 	{ path: "/excel/export", component: ExportExcel, roles: ["admin","editor","guest"]},
-	{ path: '/excel/import', component: UploadExcel, roles: ["admin","editor","guest"]}
+	{ path: '/excel/import', component: UploadExcel, roles: ["admin","editor","guest"]},
+	{ path: '/guide', component: Guide, roles: ["admin","editor","guest"]}
 ]
