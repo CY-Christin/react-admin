@@ -1,8 +1,6 @@
 # React-Admin
 
-一个简单的react后台管理项目，此项目参考借鉴了[react-antd-admin-template
-](https://github.com/NLRX-WJC/react-antd-admin-template)  ，是一个个人学习react的项目。
-
+一个简单的 React Admin 项目模版。
 此项目是基于`react16`和`AntDesign`开发的，部分使用hook语法，计划后续全部更改为hook语法。  
 
 ## 项目功能  
